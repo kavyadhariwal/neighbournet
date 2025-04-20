@@ -1,0 +1,64 @@
+/* src/components/Layout.css */
+
+.navbar {
+    background-color: #0056b3;
+    color: white;
+    padding: 12px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .logo {
+    font-size: 22px;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+  }
+  
+  .nav-right a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+  }
+  
+  .nav-right a:hover {
+    text-decoration: underline;
+  }
+  
+  .footer {
+    background-color: #f1f1f1;
+    color: #444;
+    text-align: center;
+    padding: 15px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    margin-top: 40px;
+  }
+  
+  .go-to-dashboard {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .go-to-dashboard:hover {
+    background-color: #0056b3;
+  }
+  
+
+  /* Style for the logo in navbar */
+.nav-left .logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo-img {
+  height: 40px;  /* Adjust the height as needed */
+  width: auto;   /* Keep the aspect ratio */
+}

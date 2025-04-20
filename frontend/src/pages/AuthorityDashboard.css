@@ -1,0 +1,38 @@
+/* Styling for Authority Dashboard */
+.authority-dashboard {
+  padding: 40px 16px;  /* Increased top and bottom padding for more space */
+  margin: 40px 0;      /* Added margin on top */
+  margin-bottom: 80px;  /* Increased bottom margin for more space below */
+}
+
+.heading {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 24px;  /* Increased space below the heading */
+}
+
+.complaints-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.complaints-table th,
+.complaints-table td {
+  border: 1px solid #ddd;
+  padding: 12px 16px;  /* Increased padding for table cells */
+  text-align: left;
+}
+
+.complaints-table th {
+  background-color: #f4f4f4;
+}
+
+.complaints-table td {
+  background-color: #fff;
+}
+
+.complaints-table select {
+  padding: 6px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}

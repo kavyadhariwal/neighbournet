@@ -5,6 +5,15 @@ from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth import get_user_model
 from .models import Product
 import json
+from rest_framework import generics
+from .models import Complaint
+from .serializers import ComplaintSerializer
+from rest_framework import viewsets
+from .models import Complaint
+from rest_framework.response import Response
+from rest_framework.decorators import action
+from rest_framework import status
+from rest_framework import viewsets
 
 User = get_user_model()
 
@@ -80,3 +89,19 @@ def all_products(request):
             'user': p.user.username
         })
     return JsonResponse(product_list, safe=False)
+
+class ComplaintCreateView(generics.CreateAPIView):
+    queryset = Complaint.objects.all()
+    serializer_class = ComplaintSerializer
+
+class ComplaintViewSet(viewsets.ModelViewSet):
+    queryset = Complaint.objects.all().order_by('-created_at')
+    serializer_class = ComplaintSerializer
+
+
+    @action(detail=True, methods=['patch'])
+    def update_status(self, request, pk=None):
+        complaint = self.get_object()
+        complaint.status = request.data.get('status', complaint.status)
+        complaint.save()
+        return Response({'status': 'updated', 'new_status': complaint.status})

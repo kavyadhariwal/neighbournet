@@ -17,9 +17,6 @@ const Dashboard = () => {
       <div className="dashboard-card">
         <div className="dashboard-header">
           <h2 className="dashboard-heading">Welcome, {username}!</h2>
-          <button className="logout-button" onClick={handleLogout}>
-            Logout
-          </button>
         </div>
         <p className="dashboard-subtext">Add your products below.</p>
         <AddProductForm />

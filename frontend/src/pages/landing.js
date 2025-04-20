@@ -57,7 +57,7 @@ const Landing = () => {
         </div>
 
         <div className="steps-image">
-          <img src="/homepic.jpeg" alt="Banner" />
+          <img src="/homepic.jpg" alt="Banner" />
         </div>
       </div>
 
@@ -90,7 +90,7 @@ const Landing = () => {
         </div>
 
         <div className="steps-image">
-          <img src="/homepic1.jpeg" alt="Complaint Steps Illustration" />
+          <img src="/homepic1.jpg" alt="Complaint Steps Illustration" />
         </div>
       </section>
     </div>

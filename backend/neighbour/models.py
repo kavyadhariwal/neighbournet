@@ -22,3 +22,19 @@ class Product(models.Model):
 
     def __str__(self):
         return f"{self.name} by {self.user.username}"
+
+class Complaint(models.Model):
+    STATUS_CHOICES = [
+        ('Pending', 'Pending'),
+        ('Solved', 'Solved'),
+    ]
+
+    name = models.CharField(max_length=255)
+    email = models.EmailField()
+    category = models.CharField(max_length=255, default='electricity')
+    complaint = models.TextField(default='No complaint description provided')
+    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='Pending')
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"Complaint by {self.name} on {self.created_at}"
