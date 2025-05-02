@@ -1,0 +1,35 @@
+.card {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-width: 200px;
+  }
+  
+  .card h3 {
+    font-size: 1rem;
+    color: #888;
+    margin-bottom: 0.5rem;
+  }
+  
+  .card .value {
+    font-size: 1.8rem;
+    font-weight: 600;
+  }
+  
+  .card .change {
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+  }
+  
+  .text-red-500 {
+    color: #f56565;
+  }
+  
+  .text-green-500 {
+    color: #48bb78;
+  }
+  

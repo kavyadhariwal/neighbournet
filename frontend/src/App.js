@@ -13,6 +13,7 @@ import Logout from './pages/Logout';
 import Layout from './components/Layout'; 
 import AuthorityDashboard from './pages/AuthorityDashboard';
 
+
 function App() {
   return (
     <Router>
@@ -27,6 +28,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/logout" element={<Layout><Logout /></Layout>} />
         <Route path="/authority-dashboard" element={<Layout><AuthorityDashboard /></Layout>} />
+        
       </Routes>
     </Router>
   );
