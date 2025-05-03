@@ -7,7 +7,7 @@ import Dashboard from './pages/dashboard';
 import Homepage from './pages/homepage';
 import Landing from './pages/landing';
 import ProductsPage from './pages/productsPage';
-import ComplaintForm from './pages/Complaint_Form';
+import ComplaintForm from './pages/complaint_form';
 import About from './pages/About';
 import Logout from './pages/Logout';
 import Layout from './components/Layout'; 
@@ -24,7 +24,7 @@ function App() {
         <Route path="/homepage" element={<Layout><Homepage /></Layout>} />
         <Route path="/dashboard" element={<Layout><Dashboard /></Layout>} />
         <Route path="/products" element={<Layout><ProductsPage /></Layout>} />
-        <Route path="/complaint" element={<Layout><ComplaintForm /></Layout>} />
+        <Route path="/complaint_form" element={<Layout><ComplaintForm /></Layout>} />
         <Route path="/about" element={<About />} />
         <Route path="/logout" element={<Layout><Logout /></Layout>} />
         <Route path="/authority-dashboard" element={<Layout><AuthorityDashboard /></Layout>} />

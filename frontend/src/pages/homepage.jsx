@@ -83,7 +83,7 @@ const HomePage = () => {
   Ensure you are logged in as an{' '}
   <Link to="/authority-dashboard" className="link-btn">authority</Link>{' '}
   or{' '}
-  <Link to="/complaint-form" className="link-btn">raise a complaint</Link>
+  <Link to="/complaint_form" className="link-btn">raise a complaint</Link>
   to submit or view complaints.
 </p>
 
