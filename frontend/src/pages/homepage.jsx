@@ -7,13 +7,23 @@ import './homepage.css';
 const HomePage = () => {
   const navigate = useNavigate();
 
-  const handleSellerClick = () => {
-    navigate('/dashboard');
-  };
+  // const handleSellerClick = () => {
+  //   navigate('/dashboard');
+  // };
 
-  const handleComplaintClick = () => {
-    navigate('/complaint-form');
-  };
+  // const handleComplaintClick = () => {
+  //   navigate('/complaint-form');
+  // };
+
+  const handleAuthorityClick = () => {
+    const username = localStorage.getItem('username'); 
+  
+    if (username === 'naman') {
+      navigate('/authority-dashboard');
+    } else {
+      alert('Not eligible to access the Authority Dashboard.');
+    }
+  };  
 
   return (
     <div className="main-container">
@@ -75,7 +85,8 @@ const HomePage = () => {
             <h4>Sign up for an account</h4>
             <p>
   Ensure you are logged in as an{' '}
-  <Link to="/authority-dashboard" className="link-btn">authority</Link>{' '}
+  <button className="link-btn" onClick={handleAuthorityClick}>authority</button>
+{' '}
   or{' '}
   <Link to="/complaint_form" className="link-btn">raise a complaint</Link>
   to submit or view complaints.

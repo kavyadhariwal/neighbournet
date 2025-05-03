@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import Sidebar from './components/Sidebar';
 import Card from './components/Card';
-import Chart from './components/Chart';
-import Transactions from './components/Transactions';
+import Users from './components/Users';
+import Complaints from './components/Complaints';
 import NewMembers from './components/Members';
 import './App.css';
 
@@ -31,10 +31,10 @@ export default function App() {
           <Card title="Complaints" value={stats.total_complaints} color="text-green-500" />
         </div>
         <div className="dashboard-content">
-          <Chart />
+          <Users />
           <NewMembers />
         </div>
-        <Transactions />
+        <Complaints />
       </main>
     </div>
   );

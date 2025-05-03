@@ -3,7 +3,7 @@ import React from 'react';
 export default function Navbar() {
   const navStyle = {
     width: '100vw',
-    backgroundColor: '#e6f0ff',
+    backgroundColor: '#e6f0ff', 
     color: '#333',
     padding: '15px 20px',
     display: 'flex',

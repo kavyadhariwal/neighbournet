@@ -26,8 +26,8 @@ const Login = () => {
       .then(response => response.json())
       .then(data => {
         if (data.token) {
-          localStorage.setItem('token', data.token);
-          localStorage.setItem('username', username); 
+          localStorage.setItem('token', data.token); // ✅ Store token
+          localStorage.setItem('username', username);
           console.log("Login successful");
           navigate('/profile'); 
         } else {
