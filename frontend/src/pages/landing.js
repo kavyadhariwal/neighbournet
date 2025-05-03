@@ -1,7 +1,7 @@
-// src/pages/Landing.js
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../App.css';
+import Navbar from '../components/Navbar'; 
 
 const Landing = () => {
   const navigate = useNavigate();
@@ -12,6 +12,8 @@ const Landing = () => {
 
   return (
     <div className="main-container">
+      <Navbar /> {/* ✅ Insert Navbar here */}
+
       <div className="announcement">NeighborNet is now public!</div>
 
       <h1 className="main-heading">
@@ -26,9 +28,8 @@ const Landing = () => {
       <button className="get-started" onClick={handleRegisterClick}>
         Get started →
       </button>
-      <button className="login-btn" onClick={() => navigate('/login')}>
-          Login
-        </button>
+
+      {/* 🚫 Removed extra login button */}
 
       {/* Steps Section */}
       <div className="steps-section">

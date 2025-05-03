@@ -1,16 +1,9 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 import AddProductForm from '../components/AddProductForm';
 import '../dashboard.css';
 
 const Dashboard = () => {
-  const navigate = useNavigate();
   const username = localStorage.getItem('username');
-
-  const handleLogout = () => {
-    localStorage.removeItem('username');
-    navigate('/login');
-  };
 
   return (
     <div className="dashboard-container">

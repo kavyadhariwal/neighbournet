@@ -12,6 +12,9 @@ import About from './pages/About';
 import Logout from './pages/Logout';
 import Layout from './components/Layout'; 
 import AuthorityDashboard from './pages/AuthorityDashboard';
+import Complaints from './pages/Complaints';
+import Profile from './components/Profile';
+
 
 
 function App() {
@@ -28,6 +31,8 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/logout" element={<Layout><Logout /></Layout>} />
         <Route path="/authority-dashboard" element={<Layout><AuthorityDashboard /></Layout>} />
+        <Route path="/complaints" element={<Layout><Complaints /></Layout>} />
+        <Route path="/profile" element={<Layout><Profile /></Layout>} />
         
       </Routes>
     </Router>

@@ -1,4 +1,3 @@
-
 from pathlib import Path
 import os
 
@@ -32,6 +31,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'rest_framework_simplejwt',
     'rest_framework_simplejwt.token_blacklist',
+    'rest_framework.authtoken',
 ]
 
 MIDDLEWARE = [
@@ -121,14 +121,13 @@ CORS_ORIGIN_WHITELIST = [
     "http://localhost:3000",
 ]
 
+CORS_ALLOW_CREDENTIALS = True  # This is required for sending cookies (e.g., with JWT tokens)
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
     ),
 }
-
-CORS_ALLOW_ALL_ORIGINS = True
 
 DJOSER = {
     'LOGIN_FIELD': 'email',
@@ -145,3 +144,4 @@ SESSION_ENGINE = 'django.contrib.sessions.backends.db'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+

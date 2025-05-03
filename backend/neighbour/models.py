@@ -13,7 +13,7 @@ class Product(models.Model):
         ('used', 'Used'),
     )
 
-    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)  # who added the product
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)  
     name = models.CharField(max_length=100)
     condition = models.CharField(max_length=10, choices=CONDITION_CHOICES)
     price = models.DecimalField(max_digits=10, decimal_places=2)

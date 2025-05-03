@@ -1,62 +1,91 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useState } from 'react';
 
 const AddProductForm = () => {
-  const [formData, setFormData] = useState({
-    user_id: '', // initialize as empty
-    name: '',
-    condition: 'New',
-    price: '',
-    image: null
-  });
-
-  useEffect(() => {
-    const userId = localStorage.getItem('user_id');
-    if (userId) {
-      setFormData(prev => ({ ...prev, user_id: userId }));
-    }
-  }, []);
-
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleFileChange = (e) => {
-    setFormData({ ...formData, image: e.target.files[0] });
-  };
+  const [name, setName] = useState('');
+  const [condition, setCondition] = useState('');
+  const [price, setPrice] = useState('');
+  const [image, setImage] = useState(null);
+  const [message, setMessage] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const token = localStorage.getItem('token');
+    const userId = localStorage.getItem('user_id');
 
-    if (!formData.user_id) {
-      alert('User not logged in!');
+    if (!token || !userId) {
+      setMessage('You must be logged in to add a product.');
       return;
     }
 
-    const data = new FormData();
-    Object.keys(formData).forEach(key => {
-      data.append(key, formData[key]);
-    });
+    const formData = new FormData();
+    formData.append('name', name);
+    formData.append('condition', condition);
+    formData.append('price', price);
+    formData.append('image', image);
+    formData.append('user_id', userId);
 
     try {
-      await axios.post('http://localhost:8000/add-product/', data);
-      alert('Product added!');
+      const response = await fetch('http://localhost:8000/api/add-product/', {
+        method: 'POST',
+        headers: {
+          Authorization: `Token ${token}`
+        },
+        body: formData
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setMessage('Product added successfully!');
+        setName('');
+        setCondition('');
+        setPrice('');
+        setImage(null);
+      } else {
+        setMessage(`Error adding product: ${data.error || 'Unknown error'}`);
+      }
     } catch (err) {
-      console.error('Upload error:', err.response || err.message);
-      alert('Error adding product');
+      console.error(err);
+      setMessage('Something went wrong while adding the product.');
     }
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input name="name" type="text" placeholder="Product Name" onChange={handleChange} required /><br />
-      <select name="condition" onChange={handleChange} required>
-        <option value="New">New</option>
-        <option value="Used">Used</option>
+    <form onSubmit={handleSubmit} encType="multipart/form-data">
+      <input
+        type="text"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+        placeholder="Product name"
+        required
+      /><br />
+      
+      <select
+        value={condition}
+        onChange={(e) => setCondition(e.target.value)}
+        required
+      >
+        <option value="">Select condition</option>
+        <option value="new">New</option>
+        <option value="used">Used</option>
       </select><br />
-      <input name="price" type="number" placeholder="Price" onChange={handleChange} required /><br />
-      <input name="image" type="file" onChange={handleFileChange} required /><br />
-      <button type="submit">Submit</button>
+      
+      <input
+        type="number"
+        value={price}
+        onChange={(e) => setPrice(e.target.value)}
+        placeholder="Price"
+        required
+      /><br />
+      
+      <input
+        type="file"
+        onChange={(e) => setImage(e.target.files[0])}
+        accept="image/*"
+      /><br />
+      
+      <button type="submit">Add Product</button>
+      {message && <p>{message}</p>}
     </form>
   );
 };

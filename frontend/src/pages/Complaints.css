@@ -1,0 +1,39 @@
+/* src/pages/Complaints.css */
+.complaints-container {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+  }
+  
+  .complaints-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .complaints-table th,
+  .complaints-table td {
+    padding: 12px;
+    border: 1px solid black;
+    text-align: center;
+  }
+  
+  .complaints-table th {
+    background-color: blue;
+    font-weight: bold;
+    color:white;
+  }
+  
+  .status-cell {
+    font-weight: bold;
+    color: black;
+  }
+  
+  .status-cell.pending {
+    background-color: #ffcccc; /* Light red for Pending */
+  }
+  
+  .status-cell.solved {
+    background-color: #ccffcc; /* Light green for Solved */
+  }
+  

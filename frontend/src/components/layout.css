@@ -1,13 +1,37 @@
 /* src/components/Layout.css */
-
 .navbar {
-    background-color: #0056b3;
-    color: white;
-    padding: 12px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: blue;
+  padding: 10px 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.nav-left .logo-img {
+  height: 40px;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.nav-item {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.profile-wrapper {
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
   
   .logo {
     font-size: 22px;
@@ -61,4 +85,30 @@
 .logo-img {
   height: 40px;  /* Adjust the height as needed */
   width: auto;   /* Keep the aspect ratio */
+}
+.profile-icon {
+  position: relative;
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 40px;
+  right: 0;
+  background: white;
+  border: 1px solid #ccc;
+  padding: 10px;
+  z-index: 100;
+  border-radius: 5px;
+  width: 150px; /* wider menu */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-menu button {
+  width: 100%;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px 10px;
+  text-align: left;
 }
