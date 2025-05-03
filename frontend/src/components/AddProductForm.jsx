@@ -12,25 +12,20 @@ const AddProductForm = () => {
     const token = localStorage.getItem('token');
     const userId = localStorage.getItem('user_id');
 
-    if (!token || !userId) {
-      setMessage('You must be logged in to add a product.');
-      return;
-    }
-
     const formData = new FormData();
     formData.append('name', name);
     formData.append('condition', condition);
     formData.append('price', price);
     formData.append('image', image);
-    formData.append('user_id', userId);
+    formData.append('user_id', userId); // optional, depends on backend
 
     try {
       const response = await fetch('http://localhost:8000/api/add-product/', {
         method: 'POST',
         headers: {
-          Authorization: `Token ${token}`
+          ...(token && { Authorization: `Token ${token}` }),
         },
-        body: formData
+        body: formData,
       });
 
       const data = await response.json();
@@ -59,7 +54,7 @@ const AddProductForm = () => {
         placeholder="Product name"
         required
       /><br />
-      
+
       <select
         value={condition}
         onChange={(e) => setCondition(e.target.value)}
@@ -69,7 +64,7 @@ const AddProductForm = () => {
         <option value="new">New</option>
         <option value="used">Used</option>
       </select><br />
-      
+
       <input
         type="number"
         value={price}
@@ -77,14 +72,26 @@ const AddProductForm = () => {
         placeholder="Price"
         required
       /><br />
-      
+
       <input
         type="file"
         onChange={(e) => setImage(e.target.files[0])}
         accept="image/*"
       /><br />
-      
-      <button type="submit">Add Product</button>
+
+      <button
+        type="submit"
+        style={{
+          backgroundColor: '#007bff',
+          color: 'white',
+          border: 'none',
+          padding: '10px 16px',
+          borderRadius: '4px',
+          cursor: 'pointer'
+        }}
+      >
+        Add Product
+      </button>
       {message && <p>{message}</p>}
     </form>
   );

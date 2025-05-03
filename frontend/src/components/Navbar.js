@@ -3,7 +3,7 @@ import React from 'react';
 export default function Navbar() {
   const navStyle = {
     width: '100vw',
-    backgroundColor: '#e6f0ff', // light gray
+    backgroundColor: '#e6f0ff',
     color: '#333',
     padding: '15px 20px',
     display: 'flex',
@@ -22,7 +22,7 @@ export default function Navbar() {
   };
 
   const loginStyle = {
-    color: '#003366', // dark blue to match the theme
+    color: '#003366', 
     textDecoration: 'none',
     fontSize: '16px',
     fontWeight: '500',

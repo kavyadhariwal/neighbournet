@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './Login.css'; // Create this file to keep styles separate
 
 const Login = () => {
   const [username, setUsername] = useState('');
@@ -20,9 +21,10 @@ const Login = () => {
       .then(response => response.json())
       .then(data => {
         if (data.token) {
-          localStorage.setItem('token', data.token); // ✅ Store token
+          localStorage.setItem('token', data.token);
+          localStorage.setItem('username', username); // ✅ Save username here
           console.log("Login successful");
-          window.location.href = '/profile'; // ✅ Redirect after login
+          window.location.href = '/profile';
         } else {
           alert("Login failed: " + (data.error || "Unknown error"));
         }
@@ -34,9 +36,9 @@ const Login = () => {
   };
 
   return (
-    <div>
-      <h2>Login</h2>
-      <form onSubmit={handleLogin}>
+    <div className="login-container">
+      <form className="login-form" onSubmit={handleLogin}>
+        <h2>Login</h2>
         <input
           type="text"
           placeholder="Username"
@@ -51,7 +53,7 @@ const Login = () => {
           onChange={(e) => setPassword(e.target.value)}
           required
         /><br />
-        <button type="submit">Login</button>
+        <button type="submit" className="login-button">Login</button>
       </form>
     </div>
   );

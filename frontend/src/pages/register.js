@@ -13,42 +13,46 @@ function Register() {
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://127.0.0.1:8000/register/', {
+      const response = await axios.post('http://127.0.0.1:8000/api/register/', {
         username,
         password,
-        email
+        email,
       });
       setMessage(response.data.message);
       setTimeout(() => {
         navigate('/login');
-      }, 1000); // 1-second delay before redirect
+      }, 1000);
     } catch (error) {
-      setMessage(error.response?.data?.error || "Registration failed");
+      setMessage(error.response?.data?.error || 'Registration failed');
     }
   };
 
   return (
     <div className="form-container">
-      <form onSubmit={handleRegister}>
+      <h2>Register</h2>
+      <form onSubmit={handleRegister} className="form">
         <input
           type="text"
           placeholder="Username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
+          required
         /><br />
         <input
           type="email"
           placeholder="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          required
         /><br />
         <input
           type="password"
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          required
         /><br />
-        <button type="submit">Register</button>
+        <button type="submit" className="blue-button">Register</button>
       </form>
       <p>{message}</p>
     </div>

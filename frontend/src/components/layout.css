@@ -3,9 +3,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: blue;
+  background-color: #e6f0ff;
   padding: 10px 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  color:#003366;
 }
 
 .nav-left .logo-img {
@@ -20,7 +21,7 @@
 
 .nav-item {
   text-decoration: none;
-  color: white;
+  color: #003366;
   font-weight: 500;
   cursor: pointer;
 }
@@ -43,7 +44,7 @@
   .nav-right a {
     margin-left: 20px;
     text-decoration: none;
-    color: white;
+    color: #003366;
     font-weight: 500;
   }
   

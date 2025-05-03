@@ -4,20 +4,7 @@
   align-items: center;
 }
 
-.logout-button {
-  background-color: #ff4d4d;
-  color: white;
-  border: none;
-  padding: 8px 14px;
-  border-radius: 5px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
 
-.logout-button:hover {
-  background-color: #e60000;
-}
 .dashboard-container {
   display: flex;
   justify-content: center;
@@ -44,5 +31,5 @@
 .dashboard-subtext {
   margin-top: 20px;
   font-size: 16px;
-  color: #666;
+  color: black;
 }

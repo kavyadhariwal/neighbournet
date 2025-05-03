@@ -1,6 +1,6 @@
 .custom-footer {
-    background-color: #f8f9fa;
-    color: #6c757d;
+    background-color: #e6f0ff;
+    color: #003366;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
   
@@ -32,19 +32,19 @@
   
   .footer-link {
     text-decoration: none;
-    color: #6c757d;
+    color: #003366;
   }
   
   .footer-link:hover {
     text-decoration: underline;
-    color: #343a40;
+    color: #003366;
   }
   
   .footer-bottom {
-    background-color: #f1f1f1;
+    background-color: #e6f0ff;
     text-align: center;
     padding: 1rem;
     font-size: 0.9rem;
-    color: #6c757d;
+    color: #003366;
   }
   

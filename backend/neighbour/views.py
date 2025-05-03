@@ -62,25 +62,42 @@ def login_user(request):
             return JsonResponse({'error': 'Invalid credentials'}, status=400)
 
 
+
 @csrf_exempt
 def add_product(request):
     if request.method == 'POST':
-        user_id = request.POST.get('user_id')
+        # Get token from Authorization header
+        auth_header = request.META.get('HTTP_AUTHORIZATION', '')
+        if not auth_header.startswith('Token '):
+            return JsonResponse({'error': 'Authorization header missing or invalid'}, status=401)
+        
+        token_key = auth_header.split(' ')[1]
+
+        try:
+            token = Token.objects.get(key=token_key)
+            user = token.user
+        except Token.DoesNotExist:
+            return JsonResponse({'error': 'Invalid token'}, status=401)
+
         name = request.POST.get('name')
         condition = request.POST.get('condition')
         price = request.POST.get('price')
         image = request.FILES.get('image')
 
-        try:
-            user = User.objects.get(id=user_id)
-        except User.DoesNotExist:
-            return JsonResponse({'error': 'User not found'}, status=404)
+        if not all([name, condition, price]):
+            return JsonResponse({'error': 'Missing required fields'}, status=400)
 
-        Product.objects.create(user=user, name=name, condition=condition, price=price, image=image)
+        Product.objects.create(
+            user=user,
+            name=name,
+            condition=condition,
+            price=price,
+            image=image
+        )
+
         return JsonResponse({'message': 'Product added successfully'})
-    
-    return JsonResponse({'error': 'Only POST method allowed'}, status=405)
 
+    return JsonResponse({'error': 'Only POST method allowed'}, status=405)
 
 @csrf_exempt
 def all_products(request):
@@ -146,9 +163,9 @@ def user_profile(request):
 
 class ProductDetailView(APIView):
     permission_classes = [IsAuthenticated]
-    parser_classes = [MultiPartParser, FormParser]  # Allow parsing of multipart/form-data for image uploads
+    parser_classes = [MultiPartParser, FormParser]  
 
-    # DELETE product
+   
     def delete(self, request, pk, format=None):
         try:
             product = Product.objects.get(pk=pk, user=request.user)
@@ -157,7 +174,7 @@ class ProductDetailView(APIView):
         except Product.DoesNotExist:
             return Response({"error": "Product not found"}, status=status.HTTP_404_NOT_FOUND)
     
-    # PATCH product
+   
     def patch(self, request, pk, format=None):
         try:
             product = Product.objects.get(pk=pk, user=request.user)
@@ -169,3 +186,31 @@ class ProductDetailView(APIView):
             return Response({"error": serializer.errors}, status=status.HTTP_400_BAD_REQUEST)
         except Product.DoesNotExist:
             return Response({"error": "Product not found"}, status=status.HTTP_404_NOT_FOUND)
+
+@api_view(['GET'])
+def admin_dashboard_stats(request):
+    total_users = User.objects.count()
+    total_products = Product.objects.count()
+    total_complaints = Complaint.objects.count()
+
+    return Response({
+        "total_users": total_users,
+        "total_products": total_products,
+        "total_complaints": total_complaints
+    })
+
+@api_view(['GET'])
+def latest_complaints(request):
+    complaints = Complaint.objects.order_by('-id') 
+    data = [
+        {
+            "id": c.id,
+            "name": c.name,
+            "category": c.category,
+            "complaint": c.complaint,
+            "status": c.status,
+           
+        }
+        for c in complaints
+    ]
+    return Response(data)

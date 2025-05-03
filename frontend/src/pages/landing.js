@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../App.css';
 import Navbar from '../components/Navbar'; 
+import Footer from '../components/Footer';
 
 const Landing = () => {
   const navigate = useNavigate();
@@ -17,7 +18,7 @@ const Landing = () => {
       <div className="announcement">NeighborNet is now public!</div>
 
       <h1 className="main-heading">
-        Everything about your <span className="highlight">neighborhood</span> in seconds.
+        Everything about your <span className="highlight">neighbourhood</span> in seconds.
       </h1>
 
       <p className="description">
@@ -29,9 +30,9 @@ const Landing = () => {
         Get started →
       </button>
 
-      {/* 🚫 Removed extra login button */}
+      
 
-      {/* Steps Section */}
+    
       <div className="steps-section">
         <h2>Start selling in minutes</h2>
         <p>Sharing resources with your neighbors has never been easier than with NeighborNet.</p>
@@ -62,7 +63,7 @@ const Landing = () => {
         </div>
       </div>
 
-      {/* Complaint Section */}
+     
       <section className="steps-section">
         <h2>Log a Complaint in Minutes</h2>
         <p>Raising concerns with SMC authorities has never been easier with NeighborNet.</p>
@@ -94,7 +95,9 @@ const Landing = () => {
           <img src="/homepic1.jpg" alt="Complaint Steps Illustration" />
         </div>
       </section>
+      <Footer />
     </div>
+    
   );
 };
 

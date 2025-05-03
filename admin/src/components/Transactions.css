@@ -1,50 +1,31 @@
 .transactions-section {
-    background-color: #fff;
-    border-radius: 12px;
-    padding: 1.5rem;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-  }
-  
-  .transactions-section h3 {
-    font-size: 1.2rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-  }
-  
-  .transactions-table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-  .transactions-table th,
-  .transactions-table td {
-    padding: 0.75rem;
-    text-align: left;
-    border-bottom: 1px solid #e2e8f0;
-  }
-  
-  .status {
-    padding: 0.25rem 0.5rem;
-    border-radius: 0.25rem;
-    font-size: 0.875rem;
-    font-weight: 500;
-    display: inline-block;
-    min-width: 80px;
-    text-align: center;
-  }
-  
-  .status.approved {
-    background-color: #c6f6d5;
-    color: #22543d;
-  }
-  
-  .status.pending {
-    background-color: #fefcbf;
-    color: #744210;
-  }
-  
-  .status.declined {
-    background-color: #fed7d7;
-    color: #822727;
-  }
-  
+  padding: 20px;
+}
+
+.transactions-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.transactions-table th,
+.transactions-table td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+.status {
+  padding: 5px 10px;
+  border-radius: 8px;
+  color: white;
+}
+
+.status.pending {
+  background-color: red;
+}
+
+.status.solved {
+  background-color: green;
+}
+
+
