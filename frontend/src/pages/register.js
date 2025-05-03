@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import '../App.css';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import Navbar from '../components/Navbar'; 
+import Footer from '../components/Footer';
 
 function Register() {
   const navigate = useNavigate();
@@ -28,34 +30,38 @@ function Register() {
   };
 
   return (
-    <div className="form-container">
-      <h2>Register</h2>
-      <form onSubmit={handleRegister} className="form">
-        <input
-          type="text"
-          placeholder="Username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          required
-        /><br />
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        /><br />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        /><br />
-        <button type="submit" className="blue-button">Register</button>
-      </form>
-      <p>{message}</p>
-    </div>
+    <>
+      <Navbar /> 
+      <div className="form-container">
+        <h2>Register</h2>
+        <form onSubmit={handleRegister} className="form">
+          <input
+            type="text"
+            placeholder="Username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            required
+          /><br />
+          <input
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          /><br />
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          /><br />
+          <button type="submit" className="blue-button">Register</button>
+        </form>
+        <p>{message}</p>
+      </div>
+      <Footer />
+    </>
   );
 }
 

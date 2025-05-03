@@ -16,7 +16,7 @@ urlpatterns = [
     path('api/all-products/', views.all_products, name='all_products'),
     path('api/complaints/create/', ComplaintCreateView.as_view(), name='create-complaint'),
     path('api/profile/', views.user_profile, name='profile'),
-    path('api/products/<int:pk>/', views.ProductDetailView.as_view(), name='product-detail'),  # Add this line
+    path('api/products/<int:pk>/', views.ProductDetailView.as_view(), name='product-detail'),  
     path('api/', include(router.urls)),  
     path('api/admin-stats/', admin_dashboard_stats, name='admin-stats'),
     path('api/latest-complaints/', latest_complaints, name='latest-complaints'),

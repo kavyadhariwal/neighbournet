@@ -6,11 +6,11 @@ from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('neighbour.urls')),              # Includes your custom API endpoints
-    path('auth/', include('djoser.urls')),            # Djoser auth routes
-    path('auth/', include('djoser.urls.jwt')),        # JWT auth
+    path('', include('neighbour.urls')),              
+    path('auth/', include('djoser.urls')),            #simplify authentication
+    path('auth/', include('djoser.urls.jwt')),        #(JSON Web Token) is a secure way to handle authentication
 ]
 
-# Only serve media in development
+
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -28,12 +28,6 @@ const HomePage = () => {
         start selling right away.
       </p>
 
-      <div className="buttons">
-        <button className="get-started" onClick={() => navigate('/register')}>
-          Get started →
-        </button>
-       
-      </div>
 
       <section className="steps-section">
         <h2>Start selling in minutes</h2>

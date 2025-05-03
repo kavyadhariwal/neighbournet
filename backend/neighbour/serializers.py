@@ -1,5 +1,5 @@
 # neighbour/serializers.py
-
+#Serializers in Django are used to convert complex data types (like Django models) into JSON format for APIs
 from rest_framework import serializers
 from .models import Complaint
 from .models import Product

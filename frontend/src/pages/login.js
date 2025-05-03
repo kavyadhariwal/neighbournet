@@ -1,7 +1,12 @@
 import React, { useState } from 'react';
-import './Login.css'; // Create this file to keep styles separate
+import { useNavigate } from 'react-router-dom'; 
+import './Login.css'; 
+import Navbar from '../components/Navbar'; 
+import Footer from '../components/Footer';
 
-const Login = () => {
+const Login = () => { 
+  const navigate = useNavigate();
+
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
@@ -22,9 +27,9 @@ const Login = () => {
       .then(data => {
         if (data.token) {
           localStorage.setItem('token', data.token);
-          localStorage.setItem('username', username); // ✅ Save username here
+          localStorage.setItem('username', username); 
           console.log("Login successful");
-          window.location.href = '/profile';
+          navigate('/profile'); 
         } else {
           alert("Login failed: " + (data.error || "Unknown error"));
         }
@@ -36,26 +41,30 @@ const Login = () => {
   };
 
   return (
-    <div className="login-container">
-      <form className="login-form" onSubmit={handleLogin}>
-        <h2>Login</h2>
-        <input
-          type="text"
-          placeholder="Username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          required
-        /><br />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        /><br />
-        <button type="submit" className="login-button">Login</button>
-      </form>
-    </div>
+    <>
+      <Navbar /> 
+      <div className="login-container">
+        <form className="login-form" onSubmit={handleLogin}>
+          <h2>Login</h2>
+          <input
+            type="text"
+            placeholder="Username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            required
+          /><br />
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          /><br />
+          <button type="submit" className="login-button">Login</button>
+        </form>
+      </div>
+      <Footer />
+    </>
   );
 };
 
