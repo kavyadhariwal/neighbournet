@@ -12,7 +12,7 @@ const Landing = () => {
 
   return (
     <div className="main-container">
-      <Navbar /> {/* ✅ Insert Navbar here */}
+      <Navbar /> 
 
       <div className="announcement">NeighborNet is now public!</div>
 

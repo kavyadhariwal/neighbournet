@@ -10,11 +10,11 @@ export default function App() {
     <div className="dashboard">
       <Sidebar />
       <main className="dashboard-main">
-        <h1 className="dashboard-title">Dashboard</h1>
+        <h1 className="dashboard-title">NeighbourNet</h1>
         <div className="dashboard-cards">
-          <Card title="Revenue" value="$2,454" change="-11.4%" color="text-red-500" />
-          <Card title="Sales" value="$6,982" change="+8.2%" color="text-green-500" />
-          <Card title="Costs" value="$8,310" change="+0.7%" color="text-green-500" />
+          <Card title="Users" value="$2,454"  color="text-red-500" />
+          <Card title="Products" value="$6,982"  color="text-green-500" />
+          <Card title="Complaints" value="$8,310"  color="text-green-500" />
         </div>
         <div className="dashboard-content">
           <Chart />

@@ -11,13 +11,13 @@ const transactions = [
 export default function Transactions() {
   return (
     <div className="transactions-section">
-      <h3>Latest Transactions</h3>
+      <h3>Latest Complaints</h3>
       <table className="transactions-table">
         <thead>
           <tr>
-            <th>Customer</th>
+            <th>Complaint ID</th>
             <th>Date</th>
-            <th>Amount</th>
+            <th>Type</th>
             <th>Status</th>
           </tr>
         </thead>

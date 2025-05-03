@@ -7,9 +7,11 @@
   }
   
   .logo {
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-bottom: 2rem;
+    width: 100%;
+    max-width: 150px; /* control logo size */
+    height: auto;
+    display: block;
+    margin: 0 auto 2rem auto; /* center it and add bottom spacing */
   }
   
   .sidebar nav ul {
@@ -29,5 +31,6 @@
   .sidebar nav ul li.active {
     color: #000;
     font-weight: bold;
+    font-size: 1rem;
   }
   

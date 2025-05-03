@@ -22,15 +22,14 @@ const data = [
 export default function Chart() {
   return (
     <div className="chart-section">
-      <h3>Unique Visitors</h3>
+      <h3>Logged Complaints</h3>
       <LineChart width={900} height={300} data={data}>
         <CartesianGrid stroke="#eee" strokeDasharray="5 5" />
         <XAxis dataKey="date" />
         <YAxis />
         <Tooltip />
         <Legend />
-        <Line type="monotone" dataKey="duration" stroke="#8884d8" name="Session Duration" />
-        <Line type="monotone" dataKey="views" stroke="#82ca9d" name="Page Views" />
+        <Line type="monotone" dataKey="duration" stroke="#8884d8" name="Complaints" />
       </LineChart>
     </div>
   );
