@@ -3,18 +3,18 @@ import React from 'react';
 export default function Navbar() {
   const navStyle = {
     width: '100vw',
-    backgroundColor: '#007BFF',
-    color: 'white',
+    backgroundColor: '#e6f0ff', // light gray
+    color: '#333',
     padding: '15px 20px',
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
-    margin: '0',               
-    marginBottom: '20px',      
+    margin: '0',
+    marginBottom: '20px',
     boxSizing: 'border-box',
-    position: 'relative',     
+    position: 'relative',
     top: '0',
-  };
+  };  
 
   const titleStyle = {
     fontSize: '24px',
@@ -22,14 +22,23 @@ export default function Navbar() {
   };
 
   const loginStyle = {
-    color: 'white',
+    color: '#003366', // dark blue to match the theme
     textDecoration: 'none',
     fontSize: '16px',
+    fontWeight: '500',
   };
+  
+
+  const logoStyle = {
+    height: '50px',
+    width: '70px',
+  };
+  
 
   return (
     <nav style={navStyle}>
-      <div style={titleStyle}>NeighbourNet</div>
+     <img src="/logo.png" alt="Neighbournet logo" style={logoStyle} />
+
       <a href="/login" style={loginStyle}>Login</a>
     </nav>
   );

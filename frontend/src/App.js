@@ -7,7 +7,7 @@ import Dashboard from './pages/dashboard';
 import Homepage from './pages/homepage';
 import Landing from './pages/landing';
 import ProductsPage from './pages/productsPage';
-import ComplaintForm from './pages/complaint_form';
+import ComplaintForm from './pages/Complaint_Form';
 import About from './pages/About';
 import Logout from './pages/Logout';
 import Layout from './components/Layout'; 
