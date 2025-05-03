@@ -17,14 +17,14 @@ const HomePage = () => {
 
   return (
     <div className="main-container">
-      <div className="announcement">NeighborNet is now public!</div>
+      <div className="announcement">NeighbourNet is now public!</div>
 
       <h1 className="main-heading">
-        Everything about your <span className="highlight">neighborhood</span> in seconds.
+        Everything about your <span className="highlight">neighbourhood</span> in seconds.
       </h1>
 
       <p className="description">
-        NeighborNet allows you to share resources. Simply upload your product and
+        NeighbourNet allows you to share resources. Simply upload your product and
         start selling right away.
       </p>
 
@@ -37,7 +37,7 @@ const HomePage = () => {
 
       <section className="steps-section">
         <h2>Start selling in minutes</h2>
-        <p>Sharing resources with your neighbors has never been easier than with NeighborNet.</p>
+        <p>Sharing resources with your neighbours has never been easier than with NeighbourNet.</p>
 
         <div className="steps">
           <div className="step">
@@ -73,7 +73,7 @@ const HomePage = () => {
       {/* Complaint Section */}
       <section className="steps-section">
         <h2>Log a Complaint in Minutes</h2>
-        <p>Raising concerns with SMC authorities has never been easier with NeighborNet.</p>
+        <p>Raising concerns with SMC authorities has never been easier with NeighbourNet.</p>
 
         <div className="steps">
           <div className="step">

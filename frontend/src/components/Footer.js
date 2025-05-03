@@ -7,7 +7,7 @@ import { MDBIcon } from 'mdb-react-ui-kit';
 export default function Footer() {
   return (
     <footer className="custom-footer">
-      {/* Top Bar */}
+     
       <div className="footer-top-bar">
         <span>Get connected with us</span>
       </div>
@@ -20,7 +20,7 @@ export default function Footer() {
             NeighborNet
           </h6>
           <p>
-            "NeighborNet – Connecting your community with local updates, services, and a thriving marketplace. Stay engaged, stay informed!"
+            "NeighbourNet – Connecting your community with local updates, services, and a thriving marketplace. Stay engaged, stay informed!"
           </p>
         </div>
 
@@ -38,9 +38,9 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Bottom Bar */}
+      
       <div className="footer-bottom">
-        © 2025 NeighborNet
+        © 2025 NeighbourNet
       </div>
     </footer>
   );
