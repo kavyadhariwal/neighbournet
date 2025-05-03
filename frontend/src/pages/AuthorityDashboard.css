@@ -9,7 +9,7 @@
 .authority-dashboard h2 {
   text-align: center;
   margin-bottom: 20px;
-  color: #007BFF;
+  color: black;
 }
 
 .complaints-table {
@@ -28,7 +28,7 @@
 }
 
 .complaints-table th {
-  background-color: #007BFF;
+  background-color: #003366;
   color: white;
 }
 

@@ -18,7 +18,7 @@ const HomePage = () => {
   const handleAuthorityClick = () => {
     const username = localStorage.getItem('username'); 
   
-    if (username === 'naman') {
+    if (username === 'aman') {
       navigate('/authority-dashboard');
     } else {
       alert('Not eligible to access the Authority Dashboard.');

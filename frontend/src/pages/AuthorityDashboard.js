@@ -65,7 +65,7 @@ const AuthorityDashboard = () => {
           <tr>
             <th>ID</th>
             <th>Name</th>
-            <th>Email</th>
+            
             <th>Category</th>
             <th>Complaint</th>
             <th>Status</th>
@@ -78,7 +78,7 @@ const AuthorityDashboard = () => {
             <tr key={c.id}>
               <td>{c.id}</td>
               <td>{c.name}</td>
-              <td>{c.email}</td>
+              
               <td>{c.category}</td>
               <td>{c.complaint}</td>
               <td>{c.status}</td>
