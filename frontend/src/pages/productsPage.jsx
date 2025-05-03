@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import '../products.css';
 
@@ -6,7 +5,7 @@ const ProductsPage = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetch('http://127.0.0.1:8000/all-products/')
+    fetch('http://127.0.0.1:8000/api/all-products/')
       .then(res => res.json())
       .then(data => setProducts(data))
       .catch(err => console.error('Error fetching products:', err));
@@ -19,7 +18,7 @@ const ProductsPage = () => {
         {products.map(product => (
           <div className="product-card" key={product.id}>
             <img
-              src={`http://127.0.0.1:8000/${product.image}`}
+              src={`http://127.0.0.1:8000${product.image}`}
               alt={product.name}
               className="product-image"
             />

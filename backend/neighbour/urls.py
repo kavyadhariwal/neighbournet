@@ -3,6 +3,7 @@ from rest_framework.routers import DefaultRouter
 from . import views
 from .views import ComplaintViewSet, ComplaintCreateView
 
+
 router = DefaultRouter()
 router.register(r'complaints', ComplaintViewSet, basename='complaint')
 
@@ -11,7 +12,7 @@ urlpatterns = [
     path('api/register/', views.register_user, name='register'),
     path('api/login/', views.login_user, name='login'),
     path('api/add-product/', views.add_product, name='add-product'),
-    path('api/all-products/', views.all_products, name='all-products'),
+    path('api/all-products/', views.all_products, name='all_products'),
     path('api/complaints/create/', ComplaintCreateView.as_view(), name='create-complaint'),
     path('api/profile/', views.user_profile, name='profile'),
     path('api/products/<int:pk>/', views.ProductDetailView.as_view(), name='product-detail'),  # Add this line
