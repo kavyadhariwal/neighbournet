@@ -32,9 +32,9 @@ export default function Footer() {
         <div className="footer-column">
           <h6 className="footer-title">Contact</h6>
           <p><MDBIcon icon="home" className="me-2" />Gandhinagar, Gujarat</p>
-          <p><MDBIcon icon="envelope" className="me-2" />neighbornet@gmail.com</p>
-          <p><MDBIcon icon="phone" className="me-2" />+91 23456 72188</p>
-          <p><MDBIcon icon="print" className="me-2" />+91 23456 78919</p>
+          <p><MDBIcon icon="envelope" className="me-2" />neighbournet@gmail.com</p>
+          <p><MDBIcon icon="phone" className="me-2" />+91 93456 72188</p>
+          <p><MDBIcon icon="print" className="me-2" />+91 99356 78919</p>
         </div>
       </div>
 

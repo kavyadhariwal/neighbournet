@@ -21,7 +21,7 @@ const Complaints = () => {
           <tr>
             <th>ID</th>
             <th>Name</th>
-            <th>Email</th>
+            
             <th>Category</th>
             <th>Complaint</th>
             <th>Status</th>
@@ -33,7 +33,7 @@ const Complaints = () => {
             <tr key={complaint.id}>
               <td>{complaint.id}</td>
               <td>{complaint.name}</td>
-              <td>{complaint.email}</td>
+              
               <td>{complaint.category}</td>
               <td>{complaint.complaint}</td>
               <td
