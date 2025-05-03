@@ -1,7 +1,7 @@
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from . import views
-from .views import ComplaintViewSet, ComplaintCreateView,admin_dashboard_stats,latest_complaints
+from .views import ComplaintViewSet, ComplaintCreateView,admin_dashboard_stats,latest_complaints,all_users
 
 
 
@@ -20,6 +20,7 @@ urlpatterns = [
     path('api/', include(router.urls)),  
     path('api/admin-stats/', admin_dashboard_stats, name='admin-stats'),
     path('api/latest-complaints/', latest_complaints, name='latest-complaints'),
+    path('api/users/', all_users, name='all-users'),
   
    
 ]

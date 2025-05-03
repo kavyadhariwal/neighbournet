@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Sidebar from './components/Sidebar';
 import Card from './components/Card';
 import Users from './components/Users';
-import Complaints from './components/Complaints';
+import Transactions from './components/Transactions';
 import NewMembers from './components/Members';
 import './App.css';
 
@@ -34,7 +34,7 @@ export default function App() {
           <Users />
           <NewMembers />
         </div>
-        <Complaints />
+        <Transactions />
       </main>
     </div>
   );

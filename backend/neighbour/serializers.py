@@ -5,6 +5,12 @@ from .models import Complaint
 from .models import Product
 from django.conf import settings
 from django.contrib.auth.models import User
+from .models import CustomUser
+
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CustomUser
+        fields = ['id', 'username', 'email']
 
 class ComplaintSerializer(serializers.ModelSerializer):
     class Meta:

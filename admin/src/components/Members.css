@@ -31,5 +31,10 @@
 
 .member-role {
   font-size: 0.9rem;
-  color: #777;
+  color: black;
+}
+
+.member-password {
+  font-size: 0.9rem;
+  color: black;
 }

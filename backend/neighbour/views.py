@@ -5,6 +5,7 @@ from django.views.decorators.csrf import csrf_exempt
 from rest_framework.decorators import api_view, permission_classes, action
 from django.contrib.auth import get_user_model
 from .models import Product
+from rest_framework.permissions import IsAdminUser
 import json
 from rest_framework.parsers import MultiPartParser, FormParser
 from rest_framework import generics
@@ -15,10 +16,11 @@ from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.permissions import IsAuthenticated
 from rest_framework_simplejwt.authentication import JWTAuthentication
-from .models import Product
+from .models import Product,CustomUser
 from .serializers import ProductSerializer
 from rest_framework.authtoken.models import Token
 from rest_framework.views import APIView
+from .serializers import UserSerializer
 
 User = get_user_model()
 
@@ -212,5 +214,27 @@ def latest_complaints(request):
            
         }
         for c in complaints
+    ]
+    return Response(data)
+
+# @api_view(['GET'])
+# @permission_classes([IsAuthenticated])
+# def all_users(request):
+#     users = CustomUser.objects.all()
+#     serializer = UserSerializer(users, many=True)
+#     return Response(serializer.data)
+
+
+@api_view(['GET'])
+def all_users(request):
+    users = CustomUser.objects.order_by('-id') 
+    data = [
+        {
+            "id": u.id,
+            "username": u.username,
+             "email": u.email,
+           
+        }
+        for u in users
     ]
     return Response(data)

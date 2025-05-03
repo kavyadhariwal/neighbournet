@@ -1,17 +1,25 @@
-import React from "react";
-import "./Users.css";
+import React, { useEffect, useState } from 'react';
+import './Users.css';
+import axios from 'axios';
 
-const Users = () => {
-  const users = [
-    { id: "John Doe", date: "2025-04-01", email: "$120.00" },
-    { id: "Jane Smith", date: "2025-04-03", email: "$75.50" },
-    { id: "Alice Johnson", date: "2025-04-05", email: "$200.00" },
-    { id: "Bob Brown", date: "2025-04-07", email: "$50.00" },
-  ];
+export default function Users() {
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+
+    axios.get('http://127.0.0.1:8000/api/users/', {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    })
+      .then(response => setUsers(response.data))
+      .catch(error => console.error('Error fetching users:', error));
+  }, []);
 
   return (
-    <div className="users-container">
-      <h3>Users</h3>
+    <div className="users-section">
+      <h3>All Users</h3>
       <table className="users-table">
         <thead>
           <tr>
@@ -21,17 +29,15 @@ const Users = () => {
           </tr>
         </thead>
         <tbody>
-          {users.map((user, idx) => (
-            <tr key={idx}>
-              <td>{user.id}</td>
-              <td>{user.date}</td>
-              <td>{user.email}</td>
+          {users.map((u) => (
+            <tr key={u.id}>
+              <td>{u.id}</td>
+              <td>{u.username}</td>
+              <td>{u.email}</td>
             </tr>
           ))}
         </tbody>
       </table>
     </div>
   );
-};
-
-export default Users;
+}
