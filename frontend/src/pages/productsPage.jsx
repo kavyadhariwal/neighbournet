@@ -29,12 +29,12 @@ const ProductsPage = () => {
             <h3>{product.name}</h3>
             <p>Condition: {product.condition}</p>
             <p>Price: ₹{product.price}</p>
-            <p>Seller: {product.user}</p>
+           
             <button
               className="pay-button"
               onClick={() => handlePayClick(product.user_email)}
             >
-              Pay
+              Contact seller
             </button>
           </div>
         ))}
