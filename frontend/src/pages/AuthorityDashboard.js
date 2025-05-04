@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './AuthorityDashboard.css';
+import './Complaints.css';
 
 const AuthorityDashboard = () => {
   const [complaints, setComplaints] = useState([]);
@@ -9,7 +10,7 @@ const AuthorityDashboard = () => {
   useEffect(() => {
     const fetchComplaints = async () => {
       try {
-        const response = await fetch('http://localhost:8000/api/complaints/'); // Ensure correct URL
+        const response = await fetch('http://localhost:8000/api/complaints/'); 
         if (!response.ok) {
           throw new Error('Failed to fetch complaints');
         }
@@ -27,7 +28,7 @@ const AuthorityDashboard = () => {
 
   const updateStatus = async (id, newStatus) => {
     try {
-      const response = await fetch(`http://localhost:8000/api/complaints/${id}/`, {  // Use correct endpoint
+      const response = await fetch(`http://localhost:8000/api/complaints/${id}/`, {  
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ status: newStatus }),

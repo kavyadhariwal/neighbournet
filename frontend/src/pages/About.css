@@ -1,6 +1,6 @@
 .about-container {
     max-width: 800px;
-    margin: 100px auto 150px auto; /* Increased margin-bottom to 150px for more space below */
+    margin: 100px auto 150px auto; 
     padding: 0 20px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #333;

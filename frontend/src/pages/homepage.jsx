@@ -7,13 +7,7 @@ import './homepage.css';
 const HomePage = () => {
   const navigate = useNavigate();
 
-  // const handleSellerClick = () => {
-  //   navigate('/dashboard');
-  // };
-
-  // const handleComplaintClick = () => {
-  //   navigate('/complaint-form');
-  // };
+ 
 
   const handleAuthorityClick = () => {
     const username = localStorage.getItem('username'); 

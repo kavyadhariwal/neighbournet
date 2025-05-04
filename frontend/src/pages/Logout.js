@@ -7,10 +7,9 @@ const Logout = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Clear user session, tokens etc. here if applicable
-    // localStorage.removeItem("token"); // Example
+    
     alert("You have been logged out!");
-    navigate("/"); // Redirect to homepage
+    navigate("/"); 
   }, [navigate]);
 
   return (

@@ -20,7 +20,7 @@ body, html {
   .announcement {
     border: 1px solid #ccc;
     padding: 10px 20px;
-    border-radius: 20px;          /* More rounded corners */
+    border-radius: 20px;          
     display: inline-block;
     font-weight: 600;
     background-color: #f9f9f9;

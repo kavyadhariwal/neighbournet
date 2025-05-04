@@ -1,8 +1,5 @@
 import React, { useState } from "react";
-import { MapContainer, TileLayer, Marker, useMapEvents } from "react-leaflet";
-import "leaflet/dist/leaflet.css";
 import "../complaint_form.css"; 
-
 
 export default function ComplaintForm() {
   const [complaint, setComplaint] = useState({
@@ -10,6 +7,7 @@ export default function ComplaintForm() {
     category: "Electricity",
     description: "",
     address: "",
+    email: "", 
     date: new Date().toISOString().slice(0, 10),
     location: { lat: 23.2230, lng: 72.6500 },
   });
@@ -18,28 +16,12 @@ export default function ComplaintForm() {
     setComplaint({ ...complaint, [e.target.name]: e.target.value });
   };
 
-  function LocationMarker() {
-    useMapEvents({
-      click(e) {
-        setComplaint((prev) => ({
-          ...prev,
-          location: {
-            lat: e.latlng.lat,
-            lng: e.latlng.lng,
-          },
-        }));
-      },
-    });
-
-    return <Marker position={[complaint.location.lat, complaint.location.lng]} />;
-  }
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     const payload = {
       name: complaint.subject,
-      email: "test@example.com", // Replace with actual email field if needed
+      email: complaint.email,  
       category: complaint.category,
       complaint: complaint.description,
     };
@@ -62,7 +44,6 @@ export default function ComplaintForm() {
   };
 
   return (
-   
     <div className="complaint-form-container">
       <div className="form-box">
         <h2>Report an Issue</h2>
@@ -108,25 +89,21 @@ export default function ComplaintForm() {
             required
           />
 
+          <label>Email:</label> 
+          <input
+            type="email"
+            name="email"
+            value={complaint.email}
+            onChange={handleChange}
+            required
+          />
+
           <label>Date:</label>
           <input type="date" name="date" value={complaint.date} disabled />
-
-          <label>Select Location:</label>
-          <MapContainer
-            center={[complaint.location.lat, complaint.location.lng]}
-            zoom={13}
-            className="map-container"
-          >
-            <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-            <LocationMarker />
-          </MapContainer>
-
-          <p className="map-note">Click on the map to select a location</p>
 
           <button type="submit">Submit</button>
         </form>
       </div>
     </div>
-   
   );
 }

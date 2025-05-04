@@ -17,7 +17,7 @@ const AddProductForm = () => {
     formData.append('condition', condition);
     formData.append('price', price);
     formData.append('image', image);
-    formData.append('user_id', userId); // optional, depends on backend
+    formData.append('user_id', userId); 
 
     try {
       const response = await fetch('http://localhost:8000/api/add-product/', {

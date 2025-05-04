@@ -19,7 +19,7 @@
   }
   
   .complaints-table th {
-    background-color: blue;
+    background-color: #1b42c5;
     font-weight: bold;
     color:white;
   }
@@ -30,10 +30,10 @@
   }
   
   .status-cell.pending {
-    background-color: #ffcccc; /* Light red for Pending */
+    background-color: #ffcccc;
   }
   
   .status-cell.solved {
-    background-color: #ccffcc; /* Light green for Solved */
+    background-color: #ccffcc; 
   }
   
