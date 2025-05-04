@@ -11,6 +11,10 @@ const ProductsPage = () => {
       .catch(err => console.error('Error fetching products:', err));
   }, []);
 
+  const handlePayClick = (email) => {
+    alert(`Contact seller: ${email}`);
+  };
+
   return (
     <div className="products-container">
       <h2>All Products</h2>
@@ -26,6 +30,12 @@ const ProductsPage = () => {
             <p>Condition: {product.condition}</p>
             <p>Price: ₹{product.price}</p>
             <p>Seller: {product.user}</p>
+            <button
+              className="pay-button"
+              onClick={() => handlePayClick(product.user_email)}
+            >
+              Pay
+            </button>
           </div>
         ))}
       </div>

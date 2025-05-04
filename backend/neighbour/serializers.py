@@ -18,12 +18,14 @@ class ComplaintSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class ProductSerializer(serializers.ModelSerializer):
-     class Meta:
+    user_email = serializers.EmailField(source='user.email', read_only=True)
+
+    class Meta:
         model = Product
-        fields = ['id', 'name', 'condition', 'price', 'created_at', 'image']
+        fields = ['id', 'name', 'condition', 'price', 'created_at', 'image', 'user_email']
         read_only_fields = ['user']
-     def get_image(self, obj):
-        # If the product has an image, return the full URL
+
+    def get_image(self, obj):
         if obj.image:
             return settings.MEDIA_URL + 'product_images/' + obj.image.name
         return None

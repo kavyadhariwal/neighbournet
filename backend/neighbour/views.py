@@ -101,20 +101,26 @@ def add_product(request):
 
     return JsonResponse({'error': 'Only POST method allowed'}, status=405)
 
-@csrf_exempt
+# @csrf_exempt
+# def all_products(request):
+#     products = Product.objects.all()
+#     product_list = []
+#     for p in products:
+#         product_list.append({
+#             'id': p.id,
+#             'name': p.name,
+#             'condition': p.condition,
+#             'price': p.price,
+#             'image': p.image.url if p.image else '',
+#             'user': p.user.username
+#         })
+#     return JsonResponse(product_list, safe=False)
+
+@api_view(['GET'])
 def all_products(request):
     products = Product.objects.all()
-    product_list = []
-    for p in products:
-        product_list.append({
-            'id': p.id,
-            'name': p.name,
-            'condition': p.condition,
-            'price': p.price,
-            'image': p.image.url if p.image else '',
-            'user': p.user.username
-        })
-    return JsonResponse(product_list, safe=False)
+    serializer = ProductSerializer(products, many=True)
+    return Response(serializer.data)
 
 
 class ComplaintCreateView(generics.CreateAPIView):

@@ -49,3 +49,18 @@
     font-size: 0.9rem;
   }
   
+
+  .pay-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  .pay-button:hover {
+    background-color: #0056b3;
+  }
+  

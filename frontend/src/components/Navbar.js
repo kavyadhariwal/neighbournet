@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Link, useNavigate } from "react-router-dom";
 export default function Navbar() {
   const navStyle = {
     width: '100vw',
@@ -37,7 +37,9 @@ export default function Navbar() {
 
   return (
     <nav style={navStyle}>
+       <Link to="/" className="logo">
      <img src="/logo.png" alt="Neighbournet logo" style={logoStyle} />
+     </Link>
 
       <a href="/login" style={loginStyle}>Login</a>
     </nav>
